@@ -1,19 +1,16 @@
+import { usePuterStore } from "~/lib/puter";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { usePuterStore } from "~/lib/puter";
 
 export const meta = () => [
-	{ title: "ResumeAI - Authentication" },
-	{
-		name: "description",
-		content: "Login or Register to access ResumeAI features.",
-	},
+	{ title: "ResumeAI | Auth" },
+	{ name: "description", content: "Log into your account" },
 ];
 
 const Auth = () => {
 	const { isLoading, auth } = usePuterStore();
 	const location = useLocation();
-	const next: string = location.search.split("next=")[1];
+	const next = location.search.split("next=")[1];
 	const navigate = useNavigate();
 
 	useEffect(() => {
